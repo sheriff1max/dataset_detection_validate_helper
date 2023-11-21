@@ -1,5 +1,5 @@
 __pycache__
 venv/
 *.jpg
-*.txt
+datasets/*.txt
 *.yaml
