@@ -80,6 +80,9 @@ if st.session_state['path_dataset']:
         read_data = yaml.load(f, Loader=yaml.FullLoader)
     labels_dict = {str(i): label for i, label in enumerate(read_data['names'])}
 
+    st.write(f'Осталось картинок: {len(list_path_images)}')
+    st.write(f'Обработано картинок: {len(st.session_state["list_last_images"])}')
+
     i = 0
 
     cur_path_image = os.path.join(path_images, list_path_images[i])
@@ -89,7 +92,6 @@ if st.session_state['path_dataset']:
         cur_path_label,
         labels_dict,
     )
-    # st_autorefresh(interval=600, limit=1000, key="fizzbuzzcounter")
     widget_img = st.image(img, width=440, channels='BGR')
 
     btn = st.button('Картинка хорошая, сохраняем', type="primary")
