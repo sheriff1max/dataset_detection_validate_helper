@@ -4,7 +4,8 @@
 
 1. pip install -r requirements.txt
 
-2. Запуск: streamlit run ui.py
+2.1 Запуск: streamlit run ui_classification.py
+2.2 Запуск: streamlit run ui_detection.py
 
 Загружайте датасеты и работайте!
 

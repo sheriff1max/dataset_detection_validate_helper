@@ -3,6 +3,11 @@ from PIL import Image, ImageDraw
 import cv2
 
 
+def read_img(filename_image: str) -> np.ndarray:
+    img = cv2.imread(filename_image)
+    return img
+
+
 def plot_bounding_box(
         filename_image: str,
         filename_label: str,
