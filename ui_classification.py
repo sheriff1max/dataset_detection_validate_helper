@@ -61,16 +61,14 @@ if st.session_state['path_dataset']:
     i = 0
 
     cur_path_image = os.path.join(path_images, list_path_images[i])
-    print(cur_path_image)
     img = read_img(cur_path_image)
-    print(img)
     widget_img = st.image(img, width=440, channels='BGR')
 
     btn = st.button('Картинка хорошая, сохраняем', type="primary")
     if btn:
 
         new_path_good_image = os.path.join(
-            os.path.join(st.session_state['new_good_path_dir'], 'images'),
+            st.session_state['new_good_path_dir'],
             list_path_images[i]
         )
         shutil.move(
@@ -83,7 +81,7 @@ if st.session_state['path_dataset']:
     btn = st.button('Удалить')
     if btn:
         new_path_bad_image = os.path.join(
-            os.path.join(st.session_state['new_bad_path_dir'], 'images'),
+            st.session_state['new_bad_path_dir'],
             list_path_images[i]
         )
         shutil.move(
@@ -97,7 +95,7 @@ if st.session_state['path_dataset']:
     if btn:
         shutil.move(
             st.session_state['list_last_images'][-1],
-            os.path.join(st.session_state['path_dataset'], 'images')
+            st.session_state['path_dataset'],
         )
         st.session_state['list_last_images'].pop(-1)
         st.experimental_rerun()
