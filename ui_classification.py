@@ -61,6 +61,7 @@ if st.session_state['path_dataset']:
     i = 0
 
     cur_path_image = os.path.join(path_images, list_path_images[i])
+    st.write(f'Текущий файл: {list_path_images[i]}')
     img = read_img(cur_path_image)
     widget_img = st.image(img, width=440, channels='BGR')
 

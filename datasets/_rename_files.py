@@ -3,8 +3,8 @@
 import os
 
 
-DIR_NAMES = ['Кирпич_картинки', ]
-NEW_NAME = 'hack'
+DIR_NAMES = ['brick_bad', ]
+NEW_NAME = 'general_maxim'
 
 
 def main():
