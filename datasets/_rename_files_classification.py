@@ -3,8 +3,8 @@
 import os
 
 
-DIR_NAMES = ['brick_bad', ]
-NEW_NAME = 'general_maxim'
+DIR_NAMES = ['brick_good', ]
+NEW_NAME = 'brick_'
 
 
 def main():
