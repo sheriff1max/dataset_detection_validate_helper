@@ -4,10 +4,11 @@
 import os
 import random
 import shutil
+from tqdm import tqdm
 
 
 DATASET_DIR = 'drones'
-SIZE_VALID = 0.2
+
 
 
 def main():
@@ -28,30 +29,26 @@ def main():
     path_images = os.path.join(DATASET_DIR, 'images')
     path_labels = os.path.join(DATASET_DIR, 'labels')
 
-    images = os.listdir(path_images)
+    for idx in tqdm(range(len(os.listdir(path_images)))):
+        filename = f'img_{idx}'
 
-    valid_images = random.sample(images, int(len(images) * SIZE_VALID))
-    print(len(valid_images))
-    for filename in images:
-        only_filename = filename[:-4]
-
-        if filename in valid_images:
+        if idx % 5 == 0:
             shutil.copyfile(
-                os.path.join(path_images, f'{only_filename}.jpg'),
-                os.path.join(path_valid_images, f'{only_filename}.jpg'),
+                os.path.join(path_images, f'{filename}.jpg'),
+                os.path.join(path_valid_images, f'{filename}.jpg'),
             )
             shutil.copyfile(
-                os.path.join(path_labels, f'{only_filename}.txt'),
-                os.path.join(path_valid_labels, f'{only_filename}.txt'),
+                os.path.join(path_labels, f'{filename}.txt'),
+                os.path.join(path_valid_labels, f'{filename}.txt'),
             )
         else:
             shutil.copyfile(
-                os.path.join(path_images, f'{only_filename}.jpg'),
-                os.path.join(path_train_images, f'{only_filename}.jpg'),
+                os.path.join(path_images, f'{filename}.jpg'),
+                os.path.join(path_train_images, f'{filename}.jpg'),
             )
             shutil.copyfile(
-                os.path.join(path_labels, f'{only_filename}.txt'),
-                os.path.join(path_train_labels, f'{only_filename}.txt'),
+                os.path.join(path_labels, f'{filename}.txt'),
+                os.path.join(path_train_labels, f'{filename}.txt'),
             )
 
 
